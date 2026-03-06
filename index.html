@@ -1,9 +1,24 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>안녕..?</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="중요한 질문이 있어.." />
+  <meta property="og:description" content="신중하게 대답해줘 😏" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://give-me-six.vercel.app" />
+  <meta property="og:image" content="https://give-me-six.vercel.app/preview.jpg" />
+
+  <!-- Twitter / Discord / Slack -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="중요한 질문이 있어.." />
+  <meta name="twitter:description" content="신중하게 대답해줘 😏" />
+  <meta name="twitter:image" content="https://give-me-six.vercel.app/preview.jpg" />
+
   <style>
     * {
       box-sizing: border-box;
@@ -23,7 +38,7 @@
       margin: 0;
       min-height: 100vh;
       overflow: hidden;
-      font-family: "Arial", sans-serif;
+      font-family: Arial, sans-serif;
       background:
         radial-gradient(circle at 20% 20%, #fff7fb 0%, transparent 25%),
         radial-gradient(circle at 80% 10%, #ffe3f0 0%, transparent 25%),
@@ -49,14 +64,42 @@
       animation: twinkle 3s ease-in-out infinite;
     }
 
-    .sparkle:nth-child(1) { top: 8%; left: 10%; animation-delay: 0s; }
-    .sparkle:nth-child(2) { top: 18%; right: 14%; animation-delay: 1s; }
-    .sparkle:nth-child(3) { bottom: 15%; left: 12%; animation-delay: 2s; }
-    .sparkle:nth-child(4) { bottom: 10%; right: 10%; animation-delay: 1.4s; }
+    .sparkle:nth-child(1) {
+      top: 8%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+
+    .sparkle:nth-child(2) {
+      top: 18%;
+      right: 14%;
+      animation-delay: 1s;
+    }
+
+    .sparkle:nth-child(3) {
+      bottom: 15%;
+      left: 12%;
+      animation-delay: 2s;
+    }
+
+    .sparkle:nth-child(4) {
+      bottom: 10%;
+      right: 10%;
+      animation-delay: 1.4s;
+    }
 
     @keyframes twinkle {
-      0%, 100% { transform: scale(0.85) rotate(0deg); opacity: 0.45; }
-      50% { transform: scale(1.15) rotate(12deg); opacity: 1; }
+
+      0%,
+      100% {
+        transform: scale(0.85) rotate(0deg);
+        opacity: 0.45;
+      }
+
+      50% {
+        transform: scale(1.15) rotate(12deg);
+        opacity: 1;
+      }
     }
 
     .container {
@@ -114,7 +157,9 @@
       transform: rotate(8deg);
     }
 
-    #mainScreen, #result, #sadResult {
+    #mainScreen,
+    #result,
+    #sadResult {
       text-align: center;
       position: relative;
       z-index: 2;
@@ -138,7 +183,7 @@
     .question-bubble {
       position: relative;
       display: inline-block;
-      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,244,249,0.96));
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 244, 249, 0.96));
       color: var(--text);
       font-size: clamp(28px, 4vw, 42px);
       font-weight: 900;
@@ -173,7 +218,11 @@
       position: relative;
       margin-top: 74px;
       width: 100%;
-      height: 260px;
+      height: 280px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
     }
 
     button {
@@ -186,6 +235,7 @@
       transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
       box-shadow: 0 12px 24px rgba(255, 143, 188, 0.18);
       -webkit-tap-highlight-color: transparent;
+      transform-origin: center center;
     }
 
     button:hover {
@@ -266,36 +316,73 @@
     }
 
     @keyframes dance {
-      0% { transform: translateY(0) rotate(-7deg) scale(1); }
-      25% { transform: translateY(-9px) rotate(7deg) scale(1.03); }
-      50% { transform: translateY(0) rotate(-6deg) scale(1); }
-      75% { transform: translateY(-12px) rotate(9deg) scale(1.06); }
-      100% { transform: translateY(0) rotate(-4deg) scale(1); }
+      0% {
+        transform: translateY(0) rotate(-7deg) scale(1);
+      }
+
+      25% {
+        transform: translateY(-9px) rotate(7deg) scale(1.03);
+      }
+
+      50% {
+        transform: translateY(0) rotate(-6deg) scale(1);
+      }
+
+      75% {
+        transform: translateY(-12px) rotate(9deg) scale(1.06);
+      }
+
+      100% {
+        transform: translateY(0) rotate(-4deg) scale(1);
+      }
     }
 
     @keyframes sadShake {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      20% { transform: translateY(1px) rotate(-2deg); }
-      40% { transform: translateY(0) rotate(2deg); }
-      60% { transform: translateY(2px) rotate(-1.5deg); }
-      80% { transform: translateY(0) rotate(1deg); }
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(0deg);
+      }
+
+      20% {
+        transform: translateY(1px) rotate(-2deg);
+      }
+
+      40% {
+        transform: translateY(0) rotate(2deg);
+      }
+
+      60% {
+        transform: translateY(2px) rotate(-1.5deg);
+      }
+
+      80% {
+        transform: translateY(0) rotate(1deg);
+      }
+    }
+
+    .heart,
+    .tear,
+    .confetti {
+      position: absolute;
+      pointer-events: none;
+      z-index: 1;
     }
 
     .heart {
-      position: absolute;
       font-size: 24px;
       animation: floatUp 2s ease-out forwards;
-      pointer-events: none;
-      z-index: 1;
     }
 
     .tear {
-      position: absolute;
       font-size: 20px;
       animation: fallDown 1.8s linear forwards;
-      pointer-events: none;
-      z-index: 1;
       opacity: 0.9;
+    }
+
+    .confetti {
+      font-size: 26px;
+      animation: confettiDrop 2s linear forwards;
     }
 
     @keyframes floatUp {
@@ -303,9 +390,11 @@
         opacity: 0;
         transform: translateY(0) scale(0.8);
       }
+
       15% {
         opacity: 1;
       }
+
       100% {
         opacity: 0;
         transform: translateY(-180px) scale(1.45);
@@ -317,13 +406,53 @@
         opacity: 0;
         transform: translateY(-4px) scale(0.8);
       }
+
       20% {
         opacity: 1;
       }
+
       100% {
         opacity: 0;
         transform: translateY(110px) scale(1.1);
       }
+    }
+
+    @keyframes confettiDrop {
+      0% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg);
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(105vh) rotate(540deg);
+      }
+    }
+
+    @keyframes shake {
+      0% {
+        transform: translate(0px, 0px);
+      }
+
+      25% {
+        transform: translate(-6px, 4px);
+      }
+
+      50% {
+        transform: translate(6px, -4px);
+      }
+
+      75% {
+        transform: translate(-4px, 6px);
+      }
+
+      100% {
+        transform: translate(0px, 0px);
+      }
+    }
+
+    .shake {
+      animation: shake 0.4s;
     }
 
     .bottom-caption {
@@ -362,7 +491,7 @@
       }
 
       .buttons {
-        height: 300px;
+        height: 320px;
         margin-top: 66px;
       }
 
@@ -378,6 +507,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="bg-deco">
     <div class="sparkle">✨</div>
@@ -413,21 +543,13 @@
       <div id="result">
         <div class="result-title">역시 그럴 줄 알았어 💖</div>
         <div class="result-sub">야르야르야르~~~</div>
-        <img
-          id="hamsterImage"
-          src="./yumham.jpg"
-          alt="기뻐하는 햄스터"
-        />
+        <img id="hamsterImage" src="./yumham.jpg" alt="기뻐하는 햄스터" />
       </div>
 
       <div id="sadResult">
         <div class="result-title" style="color:#7b879f;">진짜 너무해... 🥺</div>
         <div class="result-sub">다시 잘 생각해봐...</div>
-        <img
-          id="sadImage"
-          src="./ehham.jpg"
-          alt="슬퍼하는 햄스터"
-        />
+        <img id="sadImage" src="./ehham.jpg" alt="슬퍼하는 햄스터" />
       </div>
 
       <div class="bottom-caption">made with excessive emotional pressure ✨</div>
@@ -445,14 +567,29 @@
     const hamsterImage = document.getElementById("hamsterImage");
     const sadImage = document.getElementById("sadImage");
 
+    const noTexts = ["아니오", "진짜?", "잠깐", "다시 생각해봐", "그러지마", "🥺"];
+    const hamsterCry = new Audio("./hamster.mp3");
+
     let escapeLevel = 0;
     let isAnimating = false;
     let heartInterval = null;
     let tearInterval = null;
+    let confettiInterval = null;
     let resetTimer = null;
+    let yesScale = 1;
 
     const initialNoBtnLeft = "58%";
     const initialNoBtnTop = "0px";
+
+    function updateNoText() {
+      const index = Math.min(escapeLevel, noTexts.length - 1);
+      noBtn.textContent = noTexts[index];
+    }
+
+    function growYesButton() {
+      yesScale = Math.min(2.2, yesScale + 0.08);
+      yesBtn.style.transform = `scale(${yesScale})`;
+    }
 
     function moveNoButton() {
       if (isAnimating || result.style.display === "block" || sadResult.style.display === "block") return;
@@ -468,6 +605,9 @@
       const randomY = Math.random() * Math.max(maxY, 0);
 
       escapeLevel += 1;
+      updateNoText();
+      growYesButton();
+
       const duration = Math.max(0.04, 0.22 - escapeLevel * 0.015);
 
       noBtn.style.transition = `left ${duration}s ease, top ${duration}s ease`;
@@ -533,13 +673,30 @@
       }, 1800);
     }
 
+    function createConfetti() {
+      const confetti = document.createElement("div");
+      confetti.className = "confetti";
+      const symbols = ["🎉", "✨", "💖", "🎊"];
+      confetti.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+      confetti.style.left = `${Math.random() * window.innerWidth}px`;
+      confetti.style.top = "-20px";
+
+      document.body.appendChild(confetti);
+
+      setTimeout(() => {
+        confetti.remove();
+      }, 2000);
+    }
+
     function clearEffects() {
-      document.querySelectorAll(".heart, .tear").forEach((el) => el.remove());
+      document.querySelectorAll(".heart, .tear, .confetti").forEach((el) => el.remove());
       clearInterval(heartInterval);
       clearInterval(tearInterval);
+      clearInterval(confettiInterval);
       clearTimeout(resetTimer);
       heartInterval = null;
       tearInterval = null;
+      confettiInterval = null;
       resetTimer = null;
     }
 
@@ -552,10 +709,24 @@
 
       escapeLevel = 0;
       isAnimating = false;
+      yesScale = 1;
 
+      noBtn.textContent = "아니오";
+      yesBtn.style.transform = "scale(1)";
       noBtn.style.transition = "left 0.18s ease, top 0.18s ease";
       noBtn.style.left = initialNoBtnLeft;
       noBtn.style.top = initialNoBtnTop;
+    }
+
+    function mobileNoReaction() {
+      document.body.classList.add("shake");
+
+      hamsterCry.currentTime = 0;
+      hamsterCry.play().catch(() => { });
+
+      setTimeout(() => {
+        document.body.classList.remove("shake");
+      }, 400);
     }
 
     noBtn.addEventListener("mouseenter", moveNoButton);
@@ -567,41 +738,37 @@
       }
     });
 
-    document.addEventListener(
-      "touchstart",
-      (e) => {
-        const touch = e.touches[0];
-        if (!touch) return;
+    document.addEventListener("touchstart", (e) => {
+      const touch = e.touches[0];
+      if (!touch) return;
 
-        if (isPointerNearButton(touch.clientX, touch.clientY)) {
-          e.preventDefault();
-          moveNoButton();
-        }
-      },
-      { passive: false }
-    );
+      if (isPointerNearButton(touch.clientX, touch.clientY)) {
+        e.preventDefault();
+        mobileNoReaction();
+        moveNoButton();
+      }
+    }, { passive: false });
 
-    document.addEventListener(
-      "touchmove",
-      (e) => {
-        const touch = e.touches[0];
-        if (!touch) return;
+    document.addEventListener("touchmove", (e) => {
+      const touch = e.touches[0];
+      if (!touch) return;
 
-        if (isPointerNearButton(touch.clientX, touch.clientY)) {
-          e.preventDefault();
-          moveNoButton();
-        }
-      },
-      { passive: false }
-    );
+      if (isPointerNearButton(touch.clientX, touch.clientY)) {
+        e.preventDefault();
+        moveNoButton();
+      }
+    }, { passive: false });
 
     yesBtn.addEventListener("click", () => {
       clearEffects();
+
       mainScreen.style.display = "none";
       sadResult.style.display = "none";
       result.style.display = "block";
 
       heartInterval = setInterval(createHeart, 220);
+      confettiInterval = setInterval(createConfetti, 150);
+
       resetTimer = setTimeout(resetToMainScreen, 5000);
     });
 
@@ -619,8 +786,10 @@
 
     noBtn.addEventListener("touchend", (e) => {
       e.preventDefault();
+      mobileNoReaction();
       moveNoButton();
     }, { passive: false });
   </script>
 </body>
+
 </html>
